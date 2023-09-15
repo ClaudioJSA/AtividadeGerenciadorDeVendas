@@ -15,10 +15,12 @@ public class Credencial {
     private Boolean administrador;
     private Pessoa pessoa;
     
+    //<editor-fold defaultstate="collapsed" desc="Construtor">
     public Credencial(){
         administrador = false;
     }
-
+    //</editor-fold>
+    
     //<editor-fold defaultstate="collapsed" desc="Getters e Setters">
     public String getEmail() {
         return email;
@@ -55,4 +57,11 @@ public class Credencial {
         this.pessoa = pessoa;
     }
     //</editor-fold>
+    
+    //<editor-fold defaultstate="collapsed" desc="ToString">
+    @Override
+    public String toString() {
+        return "Credencial: " + email + ", '" + senha + "', " + (administrador ? "Administrador" : "Usuário Geral") + '\n';
+    }
+    //</editor-fold>   
 }
