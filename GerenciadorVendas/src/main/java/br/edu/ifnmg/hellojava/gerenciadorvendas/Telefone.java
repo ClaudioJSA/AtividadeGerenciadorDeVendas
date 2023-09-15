@@ -36,7 +36,7 @@ public class Telefone {
     //<editor-fold defaultstate="collapsed" desc="ToString">
     @Override
     public String toString() {
-        return "Telefone: (" + ddd + ") " + new DecimalFormat("000-000-000").format(numero);
+        return "Telefone: (" + ddd + ") " + (numero > 999999999 ? new DecimalFormat("000-000-000").format(numero) : new DecimalFormat("0000-0000").format(numero));
     }
     //</editor-fold>
     

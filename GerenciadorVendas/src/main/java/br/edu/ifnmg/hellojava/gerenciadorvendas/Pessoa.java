@@ -5,7 +5,9 @@
  */
 package br.edu.ifnmg.hellojava.gerenciadorvendas;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 /**
@@ -20,6 +22,14 @@ public class Pessoa {
     private ArrayList<Telefone> telefones;
     private ArrayList<Endereco> enderecos;
     private Credencial credencial;
+    
+    public BigDecimal totalCompras(){
+        BigDecimal total = new BigDecimal(0);
+        for(Compra c : compras){
+            total = total.add(c.calcularTotal());
+        }
+        return total;
+    }
 
     //<editor-fold defaultstate="collapsed" desc="Getters and Setters">
     public String getNome() {
@@ -86,7 +96,7 @@ public class Pessoa {
     //<editor-fold defaultstate="collapsed" desc="ToString">
     @Override
     public String toString() {
-        return "-PESSOA-\nNome: "+nome+"\nData de nascimento: " + nascimento+"\nIdade: "+idade+'\n';
+        return nome+", " + nascimento.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))+" "+idade+"anos, "+credencial.getEmail()+", Senha: '"+credencial.getSenha()+','+ credencial.getAdministrador()+", Endereços: "+enderecos+", Telefones: "+telefones+", Gasto Total: "+totalCompras()+", Compras: "+compras;
     }
     //</editor-fold>
         
