@@ -5,6 +5,9 @@
  */
 package br.edu.ifnmg.hellojava.gerenciadorvendas;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 /**
@@ -15,6 +18,15 @@ public class Compra {
     private Long notaFiscal;
     private Pessoa cliente;
     private ArrayList<Item> itens;
+    
+    public BigDecimal calcularTotal(){
+        BigDecimal total = new BigDecimal(0);
+        
+        for(Item i : itens){
+            total = total.add(i.calcularTotal());
+        }
+        return total;
+    }
 
     //<editor-fold defaultstate="collapsed" desc="Getters e Setters">
     public Long getNotaFiscal() {
@@ -45,7 +57,7 @@ public class Compra {
     //<editor-fold defaultstate="collapsed" desc="ToString">
     @Override
     public String toString() {
-        return "Compra{" + "notaFiscal=" + notaFiscal + ", cliente=" + cliente + '}';
+        return "Nota Fiscal: " + new DecimalFormat("000.000.000").format(notaFiscal) + "; Cliente: " + cliente.getNome() + "; R$: " + calcularTotal().setScale(2, RoundingMode.HALF_UP) + ";" + itens+'"';
     }
     //</editor-fold>
 
