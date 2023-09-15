@@ -6,7 +6,7 @@
 package br.edu.ifnmg.hellojava.gerenciadorvendas;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
+import java.math.RoundingMode;
 
 /**
  *
@@ -14,14 +14,10 @@ import java.util.ArrayList;
  */
 public class Item {
     private Integer quantidade;
-    private ArrayList<Produto> produtos;
+    private Produto produto;
 
     public BigDecimal calcularTotal(){
-        BigDecimal total = new BigDecimal(0);
-        for(Produto p : produtos){
-            total = total.add(p.getPreco());
-        }
-        return total;
+        return produto.getPreco().multiply(BigDecimal.valueOf(quantidade));
     }
     
     //<editor-fold defaultstate="collapsed" desc="Getters e Setters">
@@ -32,15 +28,22 @@ public class Item {
     public void setQuantidade(Integer quantidade) {
         this.quantidade = quantidade;
     }
+
+    public Produto getProdutos() {
+        return produto;
+    }
+
+    public void setProdutos(Produto produto) {
+        this.produto = produto;
+    }
+    
     //</editor-fold>
     
     //<editor-fold defaultstate="collapsed" desc="ToString">
     @Override
     public String toString() {
-        return "-ITENS-\n" + "Quantidade: " + quantidade + "\nProdutos: \n" + produtos + '\n';
+        return "Item: " + produto.getNome() + " " + quantidade + " x R$ " + produto.getPreco().setScale(2, RoundingMode.HALF_UP) +
+                "= R$ " + calcularTotal().setScale(2, RoundingMode.HALF_UP);
     }
     //</editor-fold>
-    
-    
-    
 }

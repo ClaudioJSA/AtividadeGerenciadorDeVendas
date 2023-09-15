@@ -84,7 +84,7 @@ public class Endereco {
     //<editor-fold defaultstate="collapsed" desc="ToString">
     @Override
     public String toString() {
-        return "Endereco: \"" + tipoLogradouro.getLogradouro() + " " + logradouro + ", " + numero + ", " + bairro + ", "+ new DecimalFormat("00.000-000").format(cep)+"\"\n";
+        return "Endereco: " + tipoLogradouro.getLogradouro() + " " + logradouro + ", " + numero + ", " + bairro + ", "+ new DecimalFormat("00.000-000").format(cep);
     }
     //</editor-fold>
     

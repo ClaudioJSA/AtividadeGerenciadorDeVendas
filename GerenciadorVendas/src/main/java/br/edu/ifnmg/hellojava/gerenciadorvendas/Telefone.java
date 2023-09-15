@@ -5,6 +5,8 @@
  */
 package br.edu.ifnmg.hellojava.gerenciadorvendas;
 
+import java.text.DecimalFormat;
+
 /**
  *
  * @author Claudio Alcantara &lt;claudio.alcantara at ifnmg.edi.br&gt;
@@ -34,7 +36,7 @@ public class Telefone {
     //<editor-fold defaultstate="collapsed" desc="ToString">
     @Override
     public String toString() {
-        return "Telefone: (" + ddd + ")" + numero + '\n';
+        return "Telefone: (" + ddd + ") " + new DecimalFormat("000-000-000").format(numero);
     }
     //</editor-fold>
     

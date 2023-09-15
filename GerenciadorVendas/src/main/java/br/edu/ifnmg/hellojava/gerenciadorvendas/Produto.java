@@ -6,6 +6,7 @@
 package br.edu.ifnmg.hellojava.gerenciadorvendas;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 /**
  *
@@ -39,7 +40,7 @@ public class Produto {
     //<editor-fold defaultstate="collapsed" desc="ToString">
     @Override
     public String toString() {
-        return "Produto{" + "Nome: " + nome + ", Preco: " + preco +"}\n";
+        return "Produto: " + nome + "R$ " + preco.setScale(2, RoundingMode.HALF_UP);
     }
     //</editor-fold>
     
