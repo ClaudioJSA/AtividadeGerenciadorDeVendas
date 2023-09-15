@@ -18,7 +18,6 @@ public class Item {
 
     public BigDecimal calcularTotal(){
         BigDecimal total = new BigDecimal(0);
-        int i=0;
         for(Produto p : produtos){
             total = total.add(p.getPreco());
         }
