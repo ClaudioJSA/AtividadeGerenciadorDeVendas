@@ -5,6 +5,8 @@
  */
 package br.edu.ifnmg.hellojava.gerenciadorvendas;
 
+import java.text.DecimalFormat;
+
 /**
  *
  * @author Claudio Alcantara &lt;claudio.alcantara at ifnmg.edi.br&gt;
@@ -15,7 +17,21 @@ public class Endereco {
     private Integer numero;
     private String bairro;
     private Integer cep;
-
+    
+    public enum TipoLogradouro {
+        AVENIDA("AVENIDA"), PRACA("PRACA"), RUA("RUA"), OUTRO("OUTRO");
+        
+        private final String logradouro;
+        
+        private TipoLogradouro(String logradouro){
+            this.logradouro = logradouro;
+        }
+        
+        public String getLogradouro(){
+            return logradouro;
+        }
+    }
+    
     //<editor-fold defaultstate="collapsed" desc="Getters e Setters">
     public TipoLogradouro getTipoLogradouro() {
         return tipoLogradouro;
@@ -63,6 +79,13 @@ public class Endereco {
     public void setCep(Integer cep) {
         this.cep = cep;
     }      
+    //</editor-fold>
+    
+    //<editor-fold defaultstate="collapsed" desc="ToString">
+    @Override
+    public String toString() {
+        return "Endereco: \"" + tipoLogradouro.getLogradouro() + " " + logradouro + ", " + numero + ", " + bairro + ", "+ new DecimalFormat("00.000-000").format(cep)+"\"\n";
+    }
     //</editor-fold>
     
 }
