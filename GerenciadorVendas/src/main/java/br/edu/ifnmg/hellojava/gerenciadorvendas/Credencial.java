@@ -19,6 +19,18 @@ public class Credencial {
     public Credencial(){
         administrador = false;
     }
+
+    public Credencial(String email, String senha, Boolean administrador, Pessoa pessoa) throws Exception{
+        if(senha.length()>12){
+            throw new Exception("A senha não pode ter mais de 12 caracteres.\n");
+        }
+        this.email = email;
+        this.senha = senha;
+        this.administrador = administrador;
+        this.pessoa = pessoa;
+    }
+
+    
     //</editor-fold>
     
     //<editor-fold defaultstate="collapsed" desc="Getters e Setters">

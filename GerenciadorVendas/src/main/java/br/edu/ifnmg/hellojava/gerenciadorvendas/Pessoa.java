@@ -7,6 +7,7 @@ package br.edu.ifnmg.hellojava.gerenciadorvendas;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.Month;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
@@ -30,6 +31,31 @@ public class Pessoa {
         }
         return total;
     }
+    
+    public void AdicionarEndereco(Endereco endereco){
+        enderecos.add(endereco);
+    }
+    
+    //<editor-fold defaultstate="collapsed" desc="Construtores">
+    public Pessoa() {
+        enderecos = new ArrayList<>();
+        telefones = new ArrayList<>();
+        compras = new ArrayList<>();
+        nascimento = LocalDate.of(01, Month.JANUARY, 0001);
+        idade = 0;
+    }
+    
+    public Pessoa(String nome, LocalDate nascimento) throws Exception{
+        if(nome.length()>45){
+            throw new Exception("O nome não pode ter mais de 45 caracteres.\n");
+        }
+        this.nome = nome;
+        this.nascimento = nascimento;
+        enderecos = new ArrayList<Endereco>();
+        telefones = new ArrayList<Telefone>();
+        compras = new ArrayList<Compra>();
+    }
+    //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Getters and Setters">
     public String getNome() {

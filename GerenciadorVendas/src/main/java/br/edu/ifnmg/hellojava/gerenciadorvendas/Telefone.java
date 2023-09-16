@@ -15,6 +15,16 @@ public class Telefone {
     private Byte ddd;
     private Integer numero;
 
+    //<editor-fold defaultstate="collapsed" desc="Construtor">
+    public Telefone() {
+    }
+
+    public Telefone(Byte ddd, Integer numero) {
+        this.ddd = ddd;
+        this.numero = numero;
+    }
+    //</editor-fold>
+
     //<editor-fold defaultstate="collapsed" desc="Getters e Setters">
     public Byte getDdd() {
         return ddd;
@@ -36,7 +46,7 @@ public class Telefone {
     //<editor-fold defaultstate="collapsed" desc="ToString">
     @Override
     public String toString() {
-        return "Telefone: (" + ddd + ") " + (numero > 999999999 ? new DecimalFormat("000-000-000").format(numero) : new DecimalFormat("0000-0000").format(numero));
+        return "Telefone: (" + ddd + ") " + (numero < 99999999 ? String.format("%04d-%04d",  (numero / 1_0000) % 1_0000, numero % 1_0000) : String.format("%03d-%03d-%03d",  numero/ 1000000, (numero / 1_000) % 1_000, numero % 1_000));
     }
     //</editor-fold>
     

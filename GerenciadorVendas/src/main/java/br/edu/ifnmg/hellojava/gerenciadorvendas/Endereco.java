@@ -31,6 +31,25 @@ public class Endereco {
             return logradouro;
         }
     }
+
+    //<editor-fold defaultstate="collapsed" desc="Construtor">
+    public Endereco() {
+    }
+
+    public Endereco(TipoLogradouro tipoLogradouro, String logradouro, Integer numero, String bairro, Integer cep) throws Exception{
+        if(logradouro.length()>255){
+            throw new Exception("O logradouro não pode ter mais de 255 caracteres.\n");
+        }
+        if(bairro.length()>50){
+            throw new Exception("O bairro não pode ter mais de 50 caracteres.\n");
+        }
+        this.tipoLogradouro = tipoLogradouro;
+        this.logradouro = logradouro;
+        this.numero = numero;
+        this.bairro = bairro;
+        this.cep = cep;
+    }
+    //</editor-fold>
     
     //<editor-fold defaultstate="collapsed" desc="Getters e Setters">
     public TipoLogradouro getTipoLogradouro() {
@@ -84,7 +103,7 @@ public class Endereco {
     //<editor-fold defaultstate="collapsed" desc="ToString">
     @Override
     public String toString() {
-        return "Endereco: " + tipoLogradouro.getLogradouro() + " " + logradouro + ", " + numero + ", " + bairro + ", "+ new DecimalFormat("00.000-000").format(cep);
+        return "Endereco: " + tipoLogradouro.getLogradouro() + " " + logradouro + ", " + numero + ", " + bairro + ", "+ String.format("%02d.%03d-%03d", cep / 1_000_000, (cep / 1_000) % 1_000, cep % 1_000);
     }
     //</editor-fold>
     
