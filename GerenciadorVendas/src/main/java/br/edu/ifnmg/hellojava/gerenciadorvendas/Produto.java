@@ -52,7 +52,5 @@ public class Produto {
     public String toString() {
         return nome + " R$ " + preco.setScale(2, RoundingMode.HALF_UP);
     }
-    //</editor-fold>
-    
-    
+    //</editor-fold>  
 }

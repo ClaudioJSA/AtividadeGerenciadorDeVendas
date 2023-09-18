@@ -39,10 +39,16 @@ public class Compra {
         itens = new ArrayList<>();
         total = new BigDecimal(0);
     }
+
+    public Compra(Long notaFiscal, Pessoa cliente, ArrayList<Item> itens, BigDecimal total) {
+        this.notaFiscal = notaFiscal;
+        this.cliente = cliente;
+        this.itens = itens;
+        this.total = total;
+    }
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Getters e Setters">
-
     public BigDecimal getTotal() {
         return total;
     }
@@ -83,5 +89,4 @@ public class Compra {
         return "Nota Fiscal: " + String.format("%03d-%03d-%03d",  notaFiscal/ 1000000, (notaFiscal / 1_000) % 1_000, notaFiscal % 1_000) + "; Cliente: " + cliente.getNome() + "; R$: " + total.setScale(2, RoundingMode.HALF_UP) + "; " + itens;
     }
     //</editor-fold>
-
 }

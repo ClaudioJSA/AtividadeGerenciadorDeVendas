@@ -86,7 +86,6 @@ public class GerenciadorVendas {
         }
         cliente1.setNascimento(LocalDate.of(2000,1,29));
         
-       
         credencial1.setPessoa(cliente1);
         credencial1.setAdministrador(true);
         credencial1.setEmail("ana.zaira@mail.com");
@@ -113,7 +112,6 @@ public class GerenciadorVendas {
 //        ea1.setCep(39401111);
 //        p1.AdicionarEndereco(ea1);
         
-         
         try{
             endereco = new Endereco(Endereco.TipoLogradouro.RUA, "A1", 1000, "Santa Ana I", 39401111);
             cliente1.getEnderecos().add(endereco);
@@ -147,8 +145,7 @@ public class GerenciadorVendas {
             System.out.println(e.getMessage());
         }
         cliente2.setNascimento(LocalDate.of(1999,1,28));
-        
-       
+
         credencial2.setPessoa(cliente2);
         credencial2.setAdministrador(false);
         credencial2.setEmail("beatriz.yana@mail.com");
@@ -208,8 +205,7 @@ public class GerenciadorVendas {
             System.out.println(e.getMessage());
         }
         cliente3.setNascimento(LocalDate.of(1998,1,27));
-        
-       
+
         credencial3.setPessoa(cliente3);
         credencial3.setAdministrador(false);
         credencial3.setEmail("cecilia.xerxes@mail.com");
@@ -343,19 +339,6 @@ public class GerenciadorVendas {
         System.out.println(cliente2);
         System.out.println("\nCliente 3:");
         System.out.println(cliente3);
-
-        //</editor-fold>
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+        //</editor-fold>  
     }
 }

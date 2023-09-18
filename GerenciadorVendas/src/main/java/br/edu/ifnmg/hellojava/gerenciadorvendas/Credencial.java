@@ -29,8 +29,6 @@ public class Credencial {
         this.administrador = administrador;
         this.pessoa = pessoa;
     }
-
-    
     //</editor-fold>
     
     //<editor-fold defaultstate="collapsed" desc="Getters e Setters">

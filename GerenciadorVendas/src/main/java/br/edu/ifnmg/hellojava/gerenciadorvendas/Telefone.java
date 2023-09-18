@@ -50,5 +50,4 @@ public class Telefone {
         return "(" + ddd + ") " + (!celular ? String.format("%04d-%04d",  (numero / 1_0000) % 1_0000, numero % 1_0000) : String.format("%03d-%03d-%03d",  numero/ 1000000, (numero / 1_000) % 1_000, numero % 1_000));
     }
     //</editor-fold>
-    
 }

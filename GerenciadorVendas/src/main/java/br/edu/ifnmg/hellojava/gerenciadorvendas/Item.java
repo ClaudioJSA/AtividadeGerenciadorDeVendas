@@ -19,6 +19,7 @@ public class Item {
     public BigDecimal calcularTotal(){
         return produto.getPreco().multiply(BigDecimal.valueOf(quantidade));
     }
+    
     //<editor-fold defaultstate="collapsed" desc="Construtor">
     public Item() {
     }
@@ -45,7 +46,6 @@ public class Item {
     public void setProdutos(Produto produto) {
         this.produto = produto;
     }
-    
     //</editor-fold>
     
     //<editor-fold defaultstate="collapsed" desc="ToString">

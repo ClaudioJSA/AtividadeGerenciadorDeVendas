@@ -121,7 +121,6 @@ public class Pessoa {
     public void setCredencial(Credencial credencial) {
         this.credencial = credencial;
     }
-    
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="ToString">
@@ -138,5 +137,4 @@ public class Pessoa {
         return nome+", " + nascimento.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))+", "+idade+" anos, "+credencial.getEmail()+", Senha: '"+credencial.getSenha()+"', "+ (credencial.getAdministrador() ? "Administrador" : "Usuário Geral")+", Endereços: "+enderecos+", Telefones: "+telefones+", Gasto Total: "+totalCompras()+", Compras: "+s;
     }
     //</editor-fold>
-        
 }
