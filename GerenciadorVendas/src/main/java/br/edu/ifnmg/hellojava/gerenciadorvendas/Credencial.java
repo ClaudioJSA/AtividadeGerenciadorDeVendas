@@ -73,7 +73,7 @@ public class Credencial {
     //<editor-fold defaultstate="collapsed" desc="ToString">
     @Override
     public String toString() {
-        return "Credencial: " + email + ", '" + senha + "', " + (administrador ? "Administrador" : "Usuário Geral") + '\n';
+        return email + ", '" + senha + "', " + (administrador ? "Administrador" : "Usuário Geral") + '\n';
     }
     //</editor-fold>   
 }

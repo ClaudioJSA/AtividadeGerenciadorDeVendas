@@ -19,6 +19,15 @@ public class Item {
     public BigDecimal calcularTotal(){
         return produto.getPreco().multiply(BigDecimal.valueOf(quantidade));
     }
+    //<editor-fold defaultstate="collapsed" desc="Construtor">
+    public Item() {
+    }
+
+    public Item(Integer quantidade, Produto produto) {
+        this.quantidade = quantidade;
+        this.produto = produto;
+    }
+    //</editor-fold>
     
     //<editor-fold defaultstate="collapsed" desc="Getters e Setters">
     public Integer getQuantidade() {
@@ -42,8 +51,8 @@ public class Item {
     //<editor-fold defaultstate="collapsed" desc="ToString">
     @Override
     public String toString() {
-        return "Item: " + produto.getNome() + " " + quantidade + " x R$ " + produto.getPreco().setScale(2, RoundingMode.HALF_UP) +
-                "= R$ " + calcularTotal().setScale(2, RoundingMode.HALF_UP);
+        return  produto.getNome() + " " + quantidade + " x R$ " + produto.getPreco().setScale(2, RoundingMode.HALF_UP) +
+                " = R$ " + calcularTotal().setScale(2, RoundingMode.HALF_UP);
     }
     //</editor-fold>
 }

@@ -18,17 +18,40 @@ public class Compra {
     private Long notaFiscal;
     private Pessoa cliente;
     private ArrayList<Item> itens;
+    private BigDecimal total;
     
     public BigDecimal calcularTotal(){
-        BigDecimal total = new BigDecimal(0);
+        total = new BigDecimal(0);
         
         for(Item i : itens){
             total = total.add(i.calcularTotal());
         }
         return total;
     }
+    
+    public boolean adicionarItem(Item item){
+        total = total.add(item.calcularTotal());
+        return itens.add(item);
+    }
+    
+    //<editor-fold defaultstate="collapsed" desc="Construtor">
+    public Compra() {
+        itens = new ArrayList<>();
+        total = new BigDecimal(0);
+    }
+    //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Getters e Setters">
+
+    public BigDecimal getTotal() {
+        return total;
+    }
+
+    public void setTotal(BigDecimal total) {
+        this.total = total;
+    }
+    
+    
     public Long getNotaFiscal() {
         return notaFiscal;
     }
@@ -57,7 +80,7 @@ public class Compra {
     //<editor-fold defaultstate="collapsed" desc="ToString">
     @Override
     public String toString() {
-        return "Nota Fiscal: " + new DecimalFormat("000.000.000").format(notaFiscal) + "; Cliente: " + cliente.getNome() + "; R$: " + calcularTotal().setScale(2, RoundingMode.HALF_UP) + ";" + itens+'"';
+        return "Nota Fiscal: " + String.format("%03d-%03d-%03d",  notaFiscal/ 1000000, (notaFiscal / 1_000) % 1_000, notaFiscal % 1_000) + "; Cliente: " + cliente.getNome() + "; R$: " + total.setScale(2, RoundingMode.HALF_UP) + "; " + itens;
     }
     //</editor-fold>
 

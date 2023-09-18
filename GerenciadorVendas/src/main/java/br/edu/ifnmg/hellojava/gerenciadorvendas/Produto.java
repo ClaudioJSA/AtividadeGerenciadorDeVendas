@@ -16,6 +16,16 @@ public class Produto {
     private String nome;
     private BigDecimal preco;
 
+    //<editor-fold defaultstate="collapsed" desc="Construtor">
+    public Produto() {
+    }    
+    
+    public Produto(String nome, BigDecimal preco) {
+        this.nome = nome;
+        this.preco = preco;
+    }
+    //</editor-fold>
+   
     //<editor-fold defaultstate="collapsed" desc="Getters e Setters">
     public String getNome(){
         return nome;
@@ -40,7 +50,7 @@ public class Produto {
     //<editor-fold defaultstate="collapsed" desc="ToString">
     @Override
     public String toString() {
-        return "Produto: " + nome + "R$ " + preco.setScale(2, RoundingMode.HALF_UP);
+        return nome + " R$ " + preco.setScale(2, RoundingMode.HALF_UP);
     }
     //</editor-fold>
     

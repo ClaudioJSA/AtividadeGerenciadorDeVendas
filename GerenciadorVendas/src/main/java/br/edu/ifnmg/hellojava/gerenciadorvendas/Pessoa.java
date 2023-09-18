@@ -6,6 +6,7 @@
 package br.edu.ifnmg.hellojava.gerenciadorvendas;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.time.LocalDate;
 import java.time.Month;
 import java.time.format.DateTimeFormatter;
@@ -32,8 +33,12 @@ public class Pessoa {
         return total;
     }
     
-    public void AdicionarEndereco(Endereco endereco){
-        enderecos.add(endereco);
+    public boolean AdicionarEndereco(Endereco endereco){
+        return enderecos.add(endereco);
+    }
+    
+    public boolean AdicionarCompra(Compra compra){
+        return compras.add(compra);
     }
     
     //<editor-fold defaultstate="collapsed" desc="Construtores">
@@ -51,9 +56,9 @@ public class Pessoa {
         }
         this.nome = nome;
         this.nascimento = nascimento;
-        enderecos = new ArrayList<Endereco>();
-        telefones = new ArrayList<Telefone>();
-        compras = new ArrayList<Compra>();
+        enderecos = new ArrayList<>();
+        telefones = new ArrayList<>();
+        compras = new ArrayList<>();
     }
     //</editor-fold>
 
@@ -122,7 +127,15 @@ public class Pessoa {
     //<editor-fold defaultstate="collapsed" desc="ToString">
     @Override
     public String toString() {
-        return nome+", " + nascimento.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))+" "+idade+"anos, "+credencial.getEmail()+", Senha: '"+credencial.getSenha()+','+ credencial.getAdministrador()+", Endereços: "+enderecos+", Telefones: "+telefones+", Gasto Total: "+totalCompras()+", Compras: "+compras;
+        String s = "[";
+        for(Compra cp : compras){
+            s += String.format("%03d-%03d-%03d",  cp.getNotaFiscal()/ 1000000, (cp.getNotaFiscal() / 1_000) % 1_000, cp.getNotaFiscal() % 1_000);
+            s +=", R$ ";
+            s += cp.getTotal().setScale(2, RoundingMode.HALF_UP);
+            s += "; ";
+        }
+        s +=']';
+        return nome+", " + nascimento.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))+", "+idade+" anos, "+credencial.getEmail()+", Senha: '"+credencial.getSenha()+"', "+ (credencial.getAdministrador() ? "Administrador" : "Usuário Geral")+", Endereços: "+enderecos+", Telefones: "+telefones+", Gasto Total: "+totalCompras()+", Compras: "+s;
     }
     //</editor-fold>
         

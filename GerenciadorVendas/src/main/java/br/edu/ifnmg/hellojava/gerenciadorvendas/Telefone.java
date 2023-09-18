@@ -5,7 +5,6 @@
  */
 package br.edu.ifnmg.hellojava.gerenciadorvendas;
 
-import java.text.DecimalFormat;
 
 /**
  *
@@ -14,14 +13,16 @@ import java.text.DecimalFormat;
 public class Telefone {
     private Byte ddd;
     private Integer numero;
+    private Boolean celular;
 
     //<editor-fold defaultstate="collapsed" desc="Construtor">
     public Telefone() {
     }
 
-    public Telefone(Byte ddd, Integer numero) {
+    public Telefone(Byte ddd, Integer numero, Boolean celular) {
         this.ddd = ddd;
         this.numero = numero;
+        this.celular = celular;
     }
     //</editor-fold>
 
@@ -46,7 +47,7 @@ public class Telefone {
     //<editor-fold defaultstate="collapsed" desc="ToString">
     @Override
     public String toString() {
-        return "Telefone: (" + ddd + ") " + (numero < 99999999 ? String.format("%04d-%04d",  (numero / 1_0000) % 1_0000, numero % 1_0000) : String.format("%03d-%03d-%03d",  numero/ 1000000, (numero / 1_000) % 1_000, numero % 1_000));
+        return "(" + ddd + ") " + (!celular ? String.format("%04d-%04d",  (numero / 1_0000) % 1_0000, numero % 1_0000) : String.format("%03d-%03d-%03d",  numero/ 1000000, (numero / 1_000) % 1_000, numero % 1_000));
     }
     //</editor-fold>
     
