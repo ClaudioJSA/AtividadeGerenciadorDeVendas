@@ -74,7 +74,7 @@ public class GerenciadorVendas {
         }catch(Exception e){
             System.out.println(e.getMessage());
         }
-        produto.setPreco(BigDecimal.valueOf(1.99));
+        produto.setPreco(BigDecimal.valueOf(5.99));
         produtos.add(produto);
         //</editor-fold>
          
@@ -131,7 +131,7 @@ public class GerenciadorVendas {
         
         compra = new Compra();
         compra.setCliente(cliente1);
-        compra.setNotaFiscal(000100101L);
+        compra.setNotaFiscal(100101L);
         item = new Item(11, produtos.get(0));
         compra.adicionarItem(item);
         
@@ -174,7 +174,7 @@ public class GerenciadorVendas {
         ///Compra 1
         compra = new Compra();
         compra.setCliente(cliente2);
-        compra.setNotaFiscal(000200202L);
+        compra.setNotaFiscal(200202L);
         item = new Item(11, produtos.get(1));
         compra.adicionarItem(item);
         item = new Item(12, produtos.get(2));
@@ -188,7 +188,7 @@ public class GerenciadorVendas {
         ///Compra 2
         compra = new Compra();
         compra.setCliente(cliente2);
-        compra.setNotaFiscal(000200212L);
+        compra.setNotaFiscal(200212L);
         item = new Item(21, produtos.get(0));
         compra.adicionarItem(item);
         item = new Item(22, produtos.get(2));
@@ -248,7 +248,7 @@ public class GerenciadorVendas {
         ///Compra 1
         compra = new Compra();
         compra.setCliente(cliente3);
-        compra.setNotaFiscal(000300303L);
+        compra.setNotaFiscal(300303L);
         item = new Item(33, produtos.get(0));
         compra.adicionarItem(item);
         item = new Item(32, produtos.get(2));

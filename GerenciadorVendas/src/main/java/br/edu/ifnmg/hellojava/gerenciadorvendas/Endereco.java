@@ -5,8 +5,6 @@
  */
 package br.edu.ifnmg.hellojava.gerenciadorvendas;
 
-import java.text.DecimalFormat;
-
 /**
  *
  * @author Claudio Alcantara &lt;claudio.alcantara at ifnmg.edi.br&gt;

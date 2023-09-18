@@ -7,7 +7,6 @@ package br.edu.ifnmg.hellojava.gerenciadorvendas;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 /**
